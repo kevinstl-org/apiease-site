@@ -2,10 +2,20 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+			rel="stylesheet"
+		/>
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta
+			name="description"
+			content="APIEase helps teams ship reliable APIs faster with tooling, observability, and guided workflows."
+		/>
+		<title>APIEase | Ship reliable APIs faster</title>
 	</head>
 	<body>
 		<slot />
@@ -13,10 +23,25 @@
 </html>
 
 <style>
+	:root {
+		color-scheme: light;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
 	html,
 	body {
 		margin: 0;
 		width: 100%;
-		height: 100%;
+		min-height: 100%;
+		font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
+		background: #090c15;
+		color: #0c101a;
+	}
+
+	body {
+		overflow-x: hidden;
 	}
 </style>

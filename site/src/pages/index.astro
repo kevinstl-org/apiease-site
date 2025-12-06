@@ -1,11 +1,535 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import logo from '../assets/logo.svg';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const capabilities = [
+	{
+		title: 'Secure storefront calls',
+		copy: 'Invoke third-party APIs from Shopify without exposing credentials in Liquid or JavaScript.',
+	},
+	{
+		title: 'Flow-ready automations',
+		copy: 'Run Shopify Flow requests and chained API calls from the same place—no custom app needed.',
+	},
+	{
+		title: 'Trusted network',
+		copy: 'All requests leave from a static IP so you can whitelist once and stay compliant.',
+	},
+];
+
+const steps = [
+	{
+		title: 'Define',
+		copy: 'Create an HTTP or Flow request with safe storage for confidential parameters.',
+	},
+	{
+		title: 'Trigger',
+		copy: 'Kick it off manually, from your storefront via the API proxy, with webhooks, or on a schedule.',
+	},
+	{
+		title: 'Deliver',
+		copy: 'APIEase executes on the server, keeps secrets out of the browser, and returns results fast.',
+	},
+];
 ---
 
 <Layout>
-	<Welcome />
+	<div class="page">
+		<div class="backdrop">
+			<div class="glow one"></div>
+			<div class="glow two"></div>
+			<div class="grid"></div>
+		</div>
+
+		<header class="nav">
+			<div class="brand">
+				<img class="logo" src={logo.src} alt="APIEase logo" />
+				<div class="wordmark">
+					<span class="name">APIEase</span>
+					<span class="tagline">Secure Shopify integrations</span>
+				</div>
+			</div>
+			<!--<div class="nav-actions">-->
+			<!--	<a class="link" href="#product">Product tour</a>-->
+			<!--	<a class="link" href="#workflow">How it works</a>-->
+			<!--	<a class="pill primary" href="mailto:hello@apiease.com?subject=APIEase%20walkthrough"-->
+			<!--		>Request early access</a-->
+			<!--	>-->
+			<!--</div>-->
+		</header>
+
+		<main>
+			<section class="hero">
+				<h1>Call external APIs without a custom app</h1>
+				<p class="lede">
+					APIEase keeps confidential parameters off the storefront and runs HTTP or Shopify Flow requests
+					server-side, using a single static IP you can whitelist.
+				</p>
+			</section>
+
+			<!--<section id="product" class="panel">-->
+			<!--	<div class="panel-heading">-->
+			<!--		<div class="kicker">Platform overview</div>-->
+			<!--		<h2>Secure, server-side API calls for Shopify</h2>-->
+			<!--		<p>Keep secrets safe, ship faster, and connect your store to any service with confidence.</p>-->
+			<!--	</div>-->
+			<!--	<div class="capabilities">-->
+			<!--		{capabilities.map((item) => (-->
+			<!--			<div class="card">-->
+			<!--				<div class="icon">-->
+			<!--					<span>•</span>-->
+			<!--				</div>-->
+			<!--				<div>-->
+			<!--					<h3>{item.title}</h3>-->
+			<!--					<p>{item.copy}</p>-->
+			<!--				</div>-->
+			<!--			</div>-->
+			<!--		))}-->
+			<!--	</div>-->
+			<!--</section>-->
+
+
+		</main>
+
+		<footer class="footer">
+			<div class="brand mini">
+				<img class="logo" src={logo.src} alt="APIEase logo" />
+				<div class="wordmark">
+					<span class="name">APIEase</span>
+					<span class="tagline">Secure Shopify integrations</span>
+				</div>
+			</div>
+			<div class="footer-links">
+				<!--<a href="mailto:hello@apiease.com">Contact</a>-->
+				<!--<a href="#product">Product</a>-->
+				<!--<a href="#workflow">Workflow</a>-->
+			</div>
+		</footer>
+	</div>
 </Layout>
+
+<style>
+	:root {
+		--bg: #090c15;
+		--panel: #0f1422;
+		--border: rgba(255, 255, 255, 0.08);
+		--muted: #9db4d9;
+		--text: #e8ecf5;
+		--primary: #2495db;
+		--accent-1: #db2439;
+		--accent-2: #db2495;
+		--accent-3: #95db24;
+		--accent-4: #db6a24;
+	}
+
+	.page {
+		position: relative;
+		padding: 24px 6vw 120px;
+		color: var(--text);
+		max-width: 1280px;
+		margin: 0 auto;
+	}
+
+	.backdrop {
+		position: fixed;
+		inset: 0;
+		background: radial-gradient(circle at 25% 12%, rgba(36, 149, 219, 0.24), transparent 30%),
+			radial-gradient(circle at 78% 18%, rgba(219, 36, 57, 0.18), transparent 34%),
+			linear-gradient(145deg, rgba(5, 8, 18, 0.95), rgba(4, 7, 15, 0.98));
+		z-index: -2;
+	}
+
+	.glow {
+		position: absolute;
+		filter: blur(130px);
+		opacity: 0.65;
+	}
+
+	.glow.one {
+		width: 360px;
+		height: 360px;
+		background: rgba(36, 149, 219, 0.45);
+		top: 12%;
+		left: 5%;
+	}
+
+	.glow.two {
+		width: 480px;
+		height: 480px;
+		background: rgba(219, 106, 36, 0.35);
+		bottom: 10%;
+		right: 0;
+	}
+
+	.grid {
+		position: absolute;
+		inset: 0;
+		background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+		background-size: 120px 120px;
+		mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.9), transparent 70%);
+		z-index: -1;
+	}
+
+	.nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 16px;
+		padding: 12px 18px;
+		border: 1px solid var(--border);
+		border-radius: 18px;
+		background: rgba(12, 16, 26, 0.78);
+		backdrop-filter: blur(10px);
+		position: sticky;
+		top: 16px;
+		z-index: 10;
+	}
+
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.logo {
+		height: 42px;
+		width: auto;
+	}
+
+	.wordmark {
+		display: flex;
+		flex-direction: column;
+		line-height: 1.1;
+	}
+
+	.name {
+		font-weight: 700;
+		font-size: 18px;
+		color: #fff;
+	}
+
+	.tagline {
+		font-size: 12px;
+		color: var(--muted);
+	}
+
+	.nav-actions {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		font-size: 14px;
+	}
+
+	.link {
+		color: var(--muted);
+		text-decoration: none;
+		padding: 8px 10px;
+		border-radius: 12px;
+		transition: color 0.2s ease, background 0.2s ease;
+	}
+
+	.link:hover {
+		color: #fff;
+		background: rgba(255, 255, 255, 0.05);
+	}
+
+	.pill {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px;
+		padding: 11px 16px;
+		border-radius: 12px;
+		font-weight: 600;
+		text-decoration: none;
+		transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+	}
+
+	.pill.primary {
+		background: linear-gradient(120deg, var(--primary), var(--accent-4));
+		color: #041024;
+		box-shadow: 0 10px 30px rgba(72, 187, 255, 0.35);
+	}
+
+	.pill.primary:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 18px 34px rgba(72, 187, 255, 0.45);
+	}
+
+	.pill.ghost {
+		border: 1px solid rgba(255, 255, 255, 0.1);
+		color: #dce5f5;
+		background: rgba(255, 255, 255, 0.03);
+	}
+
+	.pill.ghost:hover {
+		border-color: rgba(255, 255, 255, 0.2);
+	}
+
+	.hero {
+		margin: 110px 0 70px;
+		max-width: 880px;
+	}
+
+	.eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 8px 12px;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		color: var(--muted);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-size: 12px;
+	}
+
+	h1 {
+		font-size: clamp(44px, 6vw, 68px);
+		margin: 18px 0 12px;
+		line-height: 1.05;
+		font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+		color: #f6f8ff;
+	}
+
+	.lede {
+		font-size: 18px;
+		line-height: 1.7;
+		color: #c6d4f0;
+		max-width: 720px;
+		margin: 0 0 24px;
+	}
+
+	.cta {
+		display: flex;
+		gap: 12px;
+		flex-wrap: wrap;
+		margin-bottom: 32px;
+	}
+
+	.statline {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px 16px;
+		color: var(--muted);
+		font-weight: 600;
+		letter-spacing: 0.01em;
+	}
+
+	.panel {
+		margin: 60px 0;
+		padding: 26px;
+		border-radius: 24px;
+		background: var(--panel);
+		border: 1px solid var(--border);
+		box-shadow: 0 18px 60px rgba(0, 0, 0, 0.35);
+	}
+
+	.panel-heading {
+		max-width: 720px;
+	}
+
+	.kicker {
+		color: var(--primary);
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		font-size: 12px;
+		text-transform: uppercase;
+		margin-bottom: 8px;
+	}
+
+	h2 {
+		font-size: 34px;
+		margin: 0 0 10px;
+		color: #f6f8ff;
+	}
+
+	p {
+		color: #bdc9e3;
+		font-size: 16px;
+		line-height: 1.7;
+		margin: 0;
+	}
+
+	.capabilities {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 16px;
+		margin-top: 24px;
+	}
+
+	.card {
+		padding: 18px;
+		border-radius: 16px;
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid var(--border);
+		display: flex;
+		gap: 12px;
+	}
+
+	.icon {
+		width: 32px;
+		height: 32px;
+		border-radius: 10px;
+		background: linear-gradient(135deg, var(--primary), var(--accent-3));
+		display: grid;
+		place-items: center;
+		color: #031021;
+		font-weight: 700;
+	}
+
+	h3 {
+		margin: 0 0 8px;
+		color: #f6f8ff;
+		font-size: 20px;
+	}
+
+	.steps .step-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 16px;
+		margin-top: 24px;
+	}
+
+	.step-card {
+		padding: 18px;
+		border-radius: 16px;
+		border: 1px solid var(--border);
+		background: rgba(255, 255, 255, 0.015);
+	}
+
+	.step-index {
+		font-size: 13px;
+		text-transform: uppercase;
+		letter-spacing: 0.18em;
+		color: var(--primary);
+		margin-bottom: 10px;
+		font-weight: 700;
+	}
+
+	.testimonial {
+		display: grid;
+		grid-template-columns: 2fr 1.2fr;
+		gap: 20px;
+		align-items: center;
+	}
+
+	.quote {
+		background: rgba(255, 255, 255, 0.02);
+		border: 1px solid var(--border);
+		border-radius: 18px;
+		padding: 22px;
+	}
+
+	.quote p {
+		font-size: 18px;
+		color: #e4ebfd;
+		margin-bottom: 18px;
+	}
+
+	.person {
+		display: flex;
+		gap: 12px;
+		align-items: center;
+	}
+
+	.avatar {
+		width: 48px;
+		height: 48px;
+		border-radius: 12px;
+		background: linear-gradient(120deg, var(--accent-2), var(--accent-1));
+		display: grid;
+		place-items: center;
+		color: #0c101a;
+		font-weight: 700;
+		font-size: 18px;
+	}
+
+	.name {
+		color: #f6f8ff;
+		font-weight: 700;
+	}
+
+	.role {
+		color: #93abd2;
+		font-size: 14px;
+	}
+
+	.cta-stack h3 {
+		margin-top: 0;
+	}
+
+	.footer {
+		margin-top: 70px;
+		padding: 20px 0 10px;
+		border-top: 1px solid var(--border);
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 12px;
+		color: var(--muted);
+	}
+
+	.footer .mark {
+		width: 36px;
+		height: 36px;
+		font-size: 12px;
+	}
+
+	.footer-links {
+		display: flex;
+		gap: 14px;
+	}
+
+	.footer a {
+		color: var(--muted);
+		text-decoration: none;
+		font-weight: 600;
+	}
+
+	.footer a:hover {
+		color: #fff;
+	}
+
+	@media (max-width: 960px) {
+		.nav {
+			flex-wrap: wrap;
+			position: relative;
+		}
+
+		.hero {
+			margin-top: 70px;
+		}
+
+		.testimonial {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (max-width: 640px) {
+		.page {
+			padding: 18px 16px 80px;
+		}
+
+		.nav {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		.nav-actions {
+			width: 100%;
+			flex-wrap: wrap;
+		}
+
+		h1 {
+			font-size: 36px;
+		}
+
+		.panel {
+			padding: 18px;
+		}
+	}
+</style>
