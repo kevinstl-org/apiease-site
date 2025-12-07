@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Backdrop from '../components/Backdrop.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+	<div class="page">
+		<Backdrop />
+
+		<Header />
+
+		<main class="content">
+			<p class="eyebrow">Contact</p>
+			<h1>Say hello to the APIEase team</h1>
+			<p class="lede">
+				Need support, a walkthrough, or have a partnership idea? Email us and we will get back quickly.
+			</p>
+			<div class="card">
+				<div class="label">Email</div>
+				<a class="primary-link" href="mailto:support@apiease.com">support@apiease.com</a>
+				<p>Send us the details of what you are trying to do and we will point you to the right setup.</p>
+			</div>
+		</main>
+
+		<Footer />
+	</div>
+</Layout>
+
+<style>
+	.content {
+		margin-top: 90px;
+	}
+
+	.eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 8px 12px;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		color: var(--muted);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-size: 12px;
+	}
+
+	h1 {
+		font-size: clamp(38px, 5vw, 56px);
+		margin: 18px 0 12px;
+		line-height: 1.08;
+		font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+		color: #f6f8ff;
+	}
+
+	.lede {
+		font-size: 18px;
+		line-height: 1.7;
+		color: #c6d4f0;
+		max-width: 720px;
+		margin: 0 0 18px;
+	}
+
+	p {
+		color: #bdc9e3;
+		font-size: 16px;
+		line-height: 1.7;
+		margin: 0 0 18px;
+	}
+
+	.label {
+		text-transform: uppercase;
+		letter-spacing: 0.14em;
+		font-size: 12px;
+		color: var(--muted);
+		font-weight: 700;
+		margin-bottom: 8px;
+	}
+
+	.primary-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		color: #e6f1ff;
+		font-weight: 700;
+		text-decoration: none;
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+
+	.primary-link:hover {
+		color: #fff;
+		text-decoration: underline;
+	}
+
+	@media (max-width: 640px) {
+		h1 {
+			font-size: 34px;
+		}
+	}
+</style>

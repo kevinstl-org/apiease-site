@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Backdrop from '../components/Backdrop.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+	<div class="page">
+		<Backdrop />
+
+		<Header />
+
+		<main class="content">
+			<p class="eyebrow">Help and support</p>
+			<h1>Need help with APIEase?</h1>
+			<p class="lede">
+				The best place to find help and documentation for APIEase is our official docs site at
+				<a href="https://docs.apiease.com" class="link-inline">docs.apiease.com</a>.
+			</p>
+			<p>
+				It includes detailed guides, examples, and answers to common questions so you can get the most out of APIEase.
+			</p>
+			<div class="cta">
+				<a class="pill primary" href="https://docs.apiease.com" target="_blank" rel="noreferrer">Visit docs</a>
+				<a class="pill ghost" href="mailto:support@apiease.com">Email support</a>
+			</div>
+			<div class="card note">
+				If you cannot find what you are looking for, the fastest way to get support is by emailing us at
+				<strong>support@apiease.com</strong>.
+			</div>
+		</main>
+
+		<Footer />
+	</div>
+</Layout>
+
+<style>
+	.content {
+		margin-top: 90px;
+	}
+
+	.eyebrow {
+		display: inline-flex;
+		align-items: center;
+		gap: 8px;
+		padding: 8px 12px;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		color: var(--muted);
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-size: 12px;
+	}
+
+	h1 {
+		font-size: clamp(38px, 5vw, 56px);
+		margin: 18px 0 12px;
+		line-height: 1.08;
+		font-family: 'Space Grotesk', 'Plus Jakarta Sans', sans-serif;
+		color: #f6f8ff;
+	}
+
+	.lede {
+		font-size: 18px;
+		line-height: 1.7;
+		color: #c6d4f0;
+		max-width: 720px;
+		margin: 0 0 18px;
+	}
+
+	p {
+		color: #bdc9e3;
+		font-size: 16px;
+		line-height: 1.7;
+		margin: 0 0 18px;
+	}
+
+	.link-inline {
+		color: #e6f1ff;
+		text-decoration: none;
+		border-bottom: 1px solid rgba(230, 241, 255, 0.4);
+	}
+
+	.link-inline:hover {
+		color: #fff;
+		border-bottom-color: #fff;
+	}
+
+	.cta {
+		margin: 12px 0 22px;
+	}
+
+	.note {
+		color: #dce5f5;
+		font-weight: 600;
+		line-height: 1.6;
+	}
+
+	@media (max-width: 640px) {
+		h1 {
+			font-size: 34px;
+		}
+	}
+</style>

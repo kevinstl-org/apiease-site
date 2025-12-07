@@ -1,0 +1,24 @@
+---
+import logo from '../assets/logo.svg';
+
+const navLinks = [
+	{ href: '/help', label: 'Help' },
+	{ href: '/contact', label: 'Contact' },
+];
+---
+
+<header class="nav">
+	<a class="brand" href="/" aria-label="APIEase home">
+		<img class="logo" src={logo.src} alt="APIEase logo" />
+		<div class="wordmark">
+			<span class="name">APIEase</span>
+		</div>
+	</a>
+	<div class="nav-actions">
+		{navLinks.map((link) => (
+			<a class="link" href={link.href}>
+				{link.label}
+			</a>
+		))}
+	</div>
+</header>
