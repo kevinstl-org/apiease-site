@@ -4,31 +4,35 @@ import logo from '../assets/logo.svg';
 
 const capabilities = [
 	{
-		title: 'Secure storefront calls',
-		copy: 'Invoke third-party APIs from Shopify without exposing credentials in Liquid or JavaScript.',
+		title: 'HTTP Requests',
+		copy: 'Call any API with server-side headers, bodies, and secure tokens handled by APIEase.',
 	},
 	{
-		title: 'Flow-ready automations',
-		copy: 'Run Shopify Flow requests and chained API calls from the same place—no custom app needed.',
+		title: 'Flow Requests',
+		copy: 'Let Shopify Flow trigger server-side logic and return structured outputs for downstream steps.',
 	},
 	{
-		title: 'Trusted network',
-		copy: 'All requests leave from a static IP so you can whitelist once and stay compliant.',
+		title: 'Liquid Requests',
+		copy: 'Transform payloads or build dynamic request bodies with Liquid that runs inside APIEase.',
+	},
+	{
+		title: 'Secure parameters',
+		copy: 'Keep API keys and secrets on the server; storefronts and callers never see confidential values.',
 	},
 ];
 
 const steps = [
 	{
-		title: 'Define',
-		copy: 'Create an HTTP or Flow request with safe storage for confidential parameters.',
+		title: 'Define the request',
+		copy: 'Choose HTTP, Flow, or Liquid; add inputs, map confidential parameters, and chain follow-up calls.',
 	},
 	{
-		title: 'Trigger',
-		copy: 'Kick it off manually, from your storefront via the API proxy, with webhooks, or on a schedule.',
+		title: 'Trigger from any source',
+		copy: 'Run the same definition from webhooks, schedules, proxy endpoints, the storefront app proxy, remote clients, or manually.',
 	},
 	{
-		title: 'Deliver',
-		copy: 'APIEase executes on the server, keeps secrets out of the browser, and returns results fast.',
+		title: 'APIEase executes and returns',
+		copy: 'The managed runtime injects secrets at execution, handles concurrency and tracking, and responds to the caller.',
 	},
 ];
 ---
@@ -48,13 +52,6 @@ const steps = [
 					<span class="name">APIEase</span>
 				</div>
 			</div>
-			<!--<div class="nav-actions">-->
-			<!--	<a class="link" href="#product">Product tour</a>-->
-			<!--	<a class="link" href="#workflow">How it works</a>-->
-			<!--	<a class="pill primary" href="mailto:hello@apiease.com?subject=APIEase%20walkthrough"-->
-			<!--		>Request early access</a-->
-			<!--	>-->
-			<!--</div>-->
 		</header>
 
 		<main>
@@ -66,39 +63,62 @@ const steps = [
 				</p>
 			</section>
 
-			<!--<section id="product" class="panel">-->
-			<!--	<div class="panel-heading">-->
-			<!--		<div class="kicker">Platform overview</div>-->
-			<!--		<h2>Secure, server-side API calls for Shopify</h2>-->
-			<!--		<p>Keep secrets safe, ship faster, and connect your store to any service with confidence.</p>-->
-			<!--	</div>-->
-			<!--	<div class="capabilities">-->
-			<!--		{capabilities.map((item) => (-->
-			<!--			<div class="card">-->
-			<!--				<div class="icon">-->
-			<!--					<span>•</span>-->
-			<!--				</div>-->
-			<!--				<div>-->
-			<!--					<h3>{item.title}</h3>-->
-			<!--					<p>{item.copy}</p>-->
-			<!--				</div>-->
-			<!--			</div>-->
-			<!--		))}-->
-			<!--	</div>-->
-			<!--</section>-->
+			<section id="product" class="panel">
+				<div class="panel-heading">
+					<div class="kicker">What it does</div>
+					<h2>One place to run your API and automation work</h2>
+					<p>APIEase executes HTTP, Flow, and Liquid requests in a managed runtime, so your logic is reusable and secure.</p>
+				</div>
+				<div class="capabilities">
+					{capabilities.map((item) => (
+						<div class="card">
+							<div class="icon">
+								<span>•</span>
+							</div>
+							<div>
+								<h3>{item.title}</h3>
+								<p>{item.copy}</p>
+							</div>
+						</div>
+					))}
+				</div>
+			</section>
 
-
+			<section id="workflow" class="panel steps">
+				<div class="panel-heading">
+					<div class="kicker">How it works</div>
+					<h2>Define once. Trigger anywhere.</h2>
+					<p>Configure requests in the admin and run them wherever they're needed without shipping a new backend each time.</p>
+				</div>
+				<div class="step-grid">
+					{steps.map((step, index) => (
+						<div class="step-card">
+							<div class="step-index">Step {index + 1}</div>
+							<h3>{step.title}</h3>
+							<p>{step.copy}</p>
+						</div>
+					))}
+				</div>
+				<div class="trigger-block">
+					<div class="trigger-title">Triggers you can turn on day one</div>
+					<div class="trigger-tags">
+						<span class="tag">Webhooks</span>
+						<span class="tag">Schedules</span>
+						<span class="tag">Proxy endpoints</span>
+						<span class="tag">Storefront app proxy</span>
+						<span class="tag">Shopify Flow</span>
+						<span class="tag">Remote clients</span>
+						<span class="tag">Manual runs</span>
+					</div>
+				</div>
+			</section>
 		</main>
 
 		<footer class="footer">
 			<div class="brand mini">
 				<img class="logo" src={logo.src} alt="APIEase logo" />
 			</div>
-			<div class="footer-links">
-				<!--<a href="mailto:hello@apiease.com">Contact</a>-->
-				<!--<a href="#product">Product</a>-->
-				<!--<a href="#workflow">Workflow</a>-->
-			</div>
+			<div class="footer-links"></div>
 		</footer>
 	</div>
 </Layout>
@@ -304,15 +324,6 @@ const steps = [
 		margin-bottom: 32px;
 	}
 
-	.statline {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 10px 16px;
-		color: var(--muted);
-		font-weight: 600;
-		letter-spacing: 0.01em;
-	}
-
 	.panel {
 		margin: 60px 0;
 		padding: 26px;
@@ -402,6 +413,40 @@ const steps = [
 		color: var(--primary);
 		margin-bottom: 10px;
 		font-weight: 700;
+	}
+
+	.trigger-block {
+		margin-top: 28px;
+		padding: 18px;
+		border-radius: 16px;
+		border: 1px solid var(--border);
+		background: rgba(255, 255, 255, 0.02);
+	}
+
+	.trigger-title {
+		font-weight: 700;
+		color: #f6f8ff;
+		margin-bottom: 10px;
+		font-size: 16px;
+	}
+
+	.trigger-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.tag {
+		display: inline-flex;
+		align-items: center;
+		padding: 7px 12px;
+		border-radius: 999px;
+		border: 1px solid var(--border);
+		color: var(--muted);
+		background: rgba(255, 255, 255, 0.03);
+		font-weight: 600;
+		font-size: 14px;
+		letter-spacing: 0.01em;
 	}
 
 	.testimonial {
