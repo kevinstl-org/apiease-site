@@ -187,6 +187,35 @@
 	gap: 14px;
 }
 
+.footer-social {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.social-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 38px;
+	height: 38px;
+	border-radius: 12px;
+	border: 1px solid var(--border);
+	color: var(--muted);
+	transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.social-link:hover {
+	color: #fff;
+	border-color: rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.05);
+}
+
+.social-icon {
+	width: 20px;
+	height: 20px;
+}
+
 .footer a {
 	color: var(--muted);
 	text-decoration: none;
